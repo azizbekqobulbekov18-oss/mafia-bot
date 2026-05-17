@@ -612,7 +612,7 @@ async def end_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 # ===================== ASOSIY =====================
 
-def main():
+async def main():
     app = Application.builder().token(TOKEN).build()
 
     app.add_handler(CommandHandler("start", start))
@@ -622,8 +622,12 @@ def main():
     app.add_handler(CallbackQueryHandler(button_handler))
 
     print("🎮 Mafiya bot ishga tushdi!")
-    app.run_polling(drop_pending_updates=True)
+    async with app:
+        await app.initialize()
+        await app.start()
+        await app.updater.start_polling(drop_pending_updates=True)
+        await asyncio.Event().wait()
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
