@@ -119,7 +119,8 @@ async def send_role_privately(app, player, game):
 
     if player.role == "mafia":
         teammates = [p.name for p in game.mafia_players() if p.user_id != player.user_id]
-        team_info = f"\n\n🤝 *Hamkasblaringiz:* {', '.join(teammates) if teammates else 'Siz yolg\\'izsiz'}"
+        no_team = "Siz yolg'izsiz"
+        team_info = f"\n\n🤝 *Hamkasblaringiz:* {', '.join(teammates) if teammates else no_team}"
     else:
         team_info = ""
 
