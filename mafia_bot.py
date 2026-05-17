@@ -18,7 +18,7 @@ from flask import Flask
 import threading
 
 # ─────────────────────────────────────────────
-BOT_TOKEN = os.environ.get("BOT_TOKEN", "8967307684:AAF48NYpJZf9pmtsbbqrDLoCoPaFhMuM8kI")
+BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "8967307684:AAF48NYpJZf9pmtsbbqrDLoCoPaFhMuM8kI")
 ADMIN_IDS = [8397484222]
 
 logging.basicConfig(level=logging.INFO)
